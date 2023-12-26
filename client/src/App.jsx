@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState();
-  const [error, setError] = useState("");
+  const [error, setError] = useState("Loading...");
 
   useEffect(() => {
     getData();
@@ -15,7 +15,7 @@ function App() {
       const result = await axios.get("http://localhost:4001/products");
       setData(result.data.data);
     } catch (error) {
-      setError(error.message);
+      setError("Fetching Error...");
     }
   }
   async function handleDelete(id) {
